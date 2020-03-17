@@ -20,8 +20,6 @@ import picocli.CommandLine.Option;
 @Command(name = "GcsTest", mixinStandardHelpOptions = true, version = "GcsTest 1.0",
         description = "Connects to a Google Cloud Storage bucket and prints items.")
 class GcsTest implements Callable<Integer> {
-    //@Parameters(index = "0", description = "The file whose checksum to calculate.")
-    //private File file;
 
     @Option(names = { "-j", "--json" }, required = true, paramLabel = "<json file>", description = "The service account's key as JSON")
     private File json;
@@ -30,26 +28,7 @@ class GcsTest implements Callable<Integer> {
     private String bucketName;
 
     public static void main(String... args) {
-        /*
-        if (args.length < 2) {
-            System.err.println("Missing required CLI params: <json key file> <GCS bucket name>");
-            return;
-        }
-
-        File jsonKeyFile = new File(args[0]);
-        if (! jsonKeyFile.exists()) {
-            System.err.println("JSON key file does not exist!");
-            return;
-        }
-
-        String bucketName = args[1];
-        if (bucketName.length() == 0) {
-            System.err.println("Bucket name is missing!");
-            return;
-        }*/
-
         new CommandLine(new GcsTest()).execute(args);
-        //System.exit(exitCode);
     }
 
 
