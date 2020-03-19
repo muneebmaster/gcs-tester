@@ -1,21 +1,18 @@
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.util.concurrent.Callable;
-
 import com.google.api.gax.paging.Page;
+import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.Blob;
 import com.google.cloud.storage.Bucket;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
-import org.apache.commons.io.FileUtils;
-
-// Imports the Google Cloud client library
-import com.google.auth.oauth2.GoogleCredentials;
 import com.google.common.collect.Lists;
-
+import org.apache.commons.io.FileUtils;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
+
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.util.concurrent.Callable;
 
 @Command(name = "GcsTest", mixinStandardHelpOptions = true, version = "GcsTest 1.0",
         description = "Connects to a Google Cloud Storage bucket and prints items.")
